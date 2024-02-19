@@ -1,0 +1,147 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${workspaceFolder}/src/index.ts"
+      ],
+      "outputCapture": "std",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "NODE_ENV": "development",
+        "TS_NODE_SKIP_IGNORE": "true"
+      },
+      "killBehavior": "polite",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run: readonly",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${workspaceFolder}/src/index.ts"
+      ],
+      "outputCapture": "std",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "NODE_ENV": "development",
+        "TS_NODE_SKIP_IGNORE": "true",
+        "RUN_MODE": "readonly"
+      },
+      "killBehavior": "polite",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run: writeonly",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${workspaceFolder}/src/index.ts"
+      ],
+      "outputCapture": "std",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "NODE_ENV": "development",
+        "TS_NODE_SKIP_IGNORE": "true",
+        "RUN_MODE": "writeonly"
+      },
+      "killBehavior": "polite",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--testTimeout=3600000",
+        "--runInBand",
+        "--no-cache",
+      ],
+      "outputCapture": "std",
+      "console": "integratedTerminal",
+      "preLaunchTask": "npm: testenv:run",
+      "postDebugTask": "npm: testenv:stop",
+      "env": {
+        "PGHOST": "localhost",
+        "PGUSER": "postgres",
+        "PGPASSWORD": "postgres",
+      },
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest: API",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--testTimeout=3600000",
+        "--runInBand",
+        "--no-cache",
+        "${workspaceFolder}/tests/api/"
+      ],
+      "outputCapture": "std",
+      "console": "integratedTerminal",
+      "preLaunchTask": "npm: testenv:run",
+      "postDebugTask": "npm: testenv:stop",
+      "env": {
+        "PGHOST": "localhost",
+        "PGUSER": "postgres",
+        "PGPASSWORD": "postgres",
+      },
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest: BRC-20",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--testTimeout=3600000",
+        "--runInBand",
+        "--no-cache",
+        "${workspaceFolder}/tests/brc-20/"
+      ],
+      "outputCapture": "std",
+      "console": "integratedTerminal",
+      "preLaunchTask": "npm: testenv:run",
+      "postDebugTask": "npm: testenv:stop",
+      "env": {
+        "PGHOST": "localhost",
+        "PGUSER": "postgres",
+        "PGPASSWORD": "postgres",
+      },
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest: Ordhook",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--testTimeout=3600000",
+        "--runInBand",
+        "--no-cache",
+        "${workspaceFolder}/tests/ordhook/"
+      ],
+      "outputCapture": "std",
+      "console": "integratedTerminal",
+      "preLaunchTask": "npm: testenv:run",
+      "postDebugTask": "npm: testenv:stop",
+      "env": {
+        "PGHOST": "localhost",
+        "PGUSER": "postgres",
+        "PGPASSWORD": "postgres",
+      },
+    },
+  ]
+}
